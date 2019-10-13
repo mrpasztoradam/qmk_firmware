@@ -28,31 +28,31 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* QWERTZ Hungarian
+/* QWERTZ Hungarian TEST
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | ESC    | 0      | 1      | 2      | 3      | 4      | -      | `      | =      | 5      | 6      | 7      | 8      | 9      | BACKSP |
+ * | ESC    |  ESC   | 0      | 1      | 2      | 3      | 4      | 5      |  6     |  7     |  8     |  9     |  Ö     |  Ü     |   Ó    |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | W      | E      | R      | T      | [      | \      | ]      | Z      | U,Ü    | I      | O,Ö    | P      | '      |
+ * | MYCOMP |  TAB   | Q      | W      | E      | R      | T      | Z      |  U     |  I     |  O     |  P     |  Ő     |  Ú     | ENTER  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | CAP LK | A      | S      | D      | F      | G      | HOME   | DEL    | PG UP  | H      | J      | K      | L      | ;      | ENTER  |
+ * | APP    |  TAB   | A      | S      | D      | F      | G      | H      |  J     |  K     |  L     |  É     |  Á     |  Ű     | ENTER  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | LSHIFT | Y      | X      | C      | V      | B      | END    | UP     | PG DN  | N      | M      | ,      | .      | /      | RSHIFT |
+ * | RUN    |  LSFT  | Y      | X      | C      | V      | B      | N      |  M     |  ,?    |  .:    |  -_    |        |        | RSHIFT |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | LCTRL  | LGUI   | LALT   | FN     | SPACE  | SPACE  | LEFT   | DOWN   | RIGHT  | SPACE  | SPACE  | FN     | RALT   | RGUI   | RCTRL  |
+ * | CALC   | LCTRL  | LALT   | LGUI   | FUN    | BACKSP | SPACE  | SPACE  |  DEL   |  FUN   |        |        | RALT   | RGUI   | RCTRL  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
   [_QW] = LAYOUT_ortho_5x15( /* QWERTZ */
-    KC_ESC,  HU_0,    HU_1,    HU_2,    HU_3,    HU_4,    KC_MINS, KC_GRV,  KC_EQL,  HU_5,    HU_6,    HU_7,    HU_8,    HU_9,    KC_BSPC,
-    KC_TAB,  HU_Q,    HU_W,    HU_E,    HU_R,    HU_T,    KC_LBRC, KC_BSLS, KC_RBRC, HU_Z,    TD(TD_U_UE),    HU_I,    TD(TD_O_OE),    HU_P,    KC_QUOT,
-    KC_CAPS, HU_A,    HU_S,    HU_D,    HU_F,    HU_G,    KC_HOME, KC_DEL,  KC_PGUP, HU_H,    HU_J,    HU_K,    HU_L,    KC_SCLN, KC_ENT,
-    KC_LSFT, HU_Y,    HU_X,    HU_C,    HU_V,    HU_B,    KC_END,  KC_UP,   KC_PGDN, HU_N,    HU_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, KC_LGUI, KC_LALT, MO(_FN), KC_SPC,  KC_SPC,  KC_LEFT, KC_DOWN, KC_RGHT, KC_SPC,  KC_SPC,  MO(_FN), KC_RALT, KC_RGUI, KC_RCTL
+    KC_ESC,  KC_ESC,      HU_0,    HU_1,    HU_2,    HU_3,    HU_4,    HU_5,    HU_6,    HU_7,    HU_8,    HU_9,    HU_OE,    HU_UE,   HU_OO,
+    KC_MYCM, KC_TAB,      HU_Q,    HU_W,    HU_E,    HU_R,    HU_T,    HU_Z,    HU_U,    HU_I,    HU_O,    HU_P,    HU_OEE,   HU_UU,   KC_ENT,
+    KC_APP,  KC_TAB,      HU_A,    HU_S,    HU_D,    HU_F,    HU_G,    HU_H,    HU_J,    HU_K,    HU_L,    HU_EE,   HU_AA,    HU_UEE,  KC_ENT,
+    KC_LSFT, SFT_T(HU_II),HU_Y,    HU_X,    HU_C,    HU_V,    HU_B,    HU_N,    HU_M,    HU_COMM, HU_DOT,  HU_MINS, _______,  _______, KC_RSFT,
+    KC_CALC, KC_LCTL,     KC_LALT, KC_LGUI, MO(_FN), KC_BSPC, KC_SPC,  KC_SPC,  KC_DEL,  MO(_FN), _______, _______, KC_RALT,  KC_RGUI, KC_RCTL
   ),
 
 /* FUNCTION
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | F1     | F2     | F3     | F4     | F5     | F6     | NUM LK | P/     | P*     | F7     | F8     | F9     | F10    | F11    | F12    |
+ * |        |        |        | F1     | F2     | F3     |  F4    |  F5    | F6     | F7     | F8     | F9     | F10    | F11    | F12    |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | SELECT | CALC   | MYCOMP | É      | RGB HD | RGB HI | P7     | P8     | P9     | -      | Ú,Ű    | Í      | Ó,Ő    | SCR LK | PAUSE  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
